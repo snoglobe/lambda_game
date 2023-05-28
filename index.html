@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="dist/bundle.js" defer></script>
+    <meta charset="UTF-8">
+    <title>MILK</title>
+    <style>
+
+        html {
+        font-family: monospace;
+        background-color: grey;
+            text-align: center;
+        }
+    .info {
+        width: 800px;
+        font-size: 20px;
+        margin: 10px;
+        float: right;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<h1 id="levelName"></h1>
+<div class="info" id="levelExplainer">
+Lambda Calculus is an extremely minimalistic programming language, where everything is represented as a function. Functions in Lambda Calculus will always take some other function as an input, and return another as output. The simplest possible function in Lambda Calculus is the Identity Function:
+    <br>
+    <b>(\x.x)</b><br>
+    Inputs are denoted with the Lambda symbol (Represented as "\" in code), and seperated by ".".
+     Everything else within the parentheses is an output.
+
+    Here's how you can evaluate this function:
+    <br><b>(\x.x) y -> (\y.y) -> y</b><br>
+    The first step is to pass y as an input. This is denoted by writing y to the right of the function body. After that, we substitute the first lambda value with the first input throughout. Finally, we have the function (\y.y), which is identical to just y. (\x.x) is called the Identity Function, as it returns whatever it receives as input.<br>
+    <em>You will be given either the function True or False (You'll learn how these work later). You will receive True as an input to your code if there is an enemy above, and False otherwise. Your code, given this as input, should return True whenever the player should shoot.</em>
+</div>
+<div id="editor"></div>
+</body>
+<p>Made by Cheru, Henry, Grant & Mason</p>
+</html>
