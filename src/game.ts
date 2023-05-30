@@ -19,6 +19,8 @@ For example:
 const ident: AstNode = (x: AstNode) => x;
 const True = interpret("(\\x.\\y.x)");
 
+let ammo = 100;
+
 let lastOutput;
 let currentInput: AstNode = (x: AstNode) => x;
 let stringCurrentInput = "enemyIsAbove";
@@ -90,10 +92,20 @@ const label = new Text('Run', {
 label.x = 30;
 label.y = 70;
 
+const ammoCounter = new Text('Ammo:', {
+    fontFamily: 'monospace',
+    fontSize: 20,
+    fill: 0xffffff,
+});
+
+ammoCounter.x = 650;
+ammoCounter.y = 500;
+
 app.stage.addChild(button.view);
 app.stage.addChild(label);
 app.stage.addChild(input);
 app.stage.addChild(inputLabel);
+app.stage.addChild(ammoCounter);
 app.stage.addChild(mary);
 
 function interpretLambda(lambdaSource, levelInput) {
@@ -143,6 +155,9 @@ function boxesIntersect(a, b)
 }
 
 export function shoot() {
+    if(ammo <= 0) return;
+    ammo--;
+    ammoCounter.text = "Ammo: " + ammo;
     let pew = Sprite.from("../assets/pewpew.png");
     pew.x = mary.x + mary.height / 2
     pew.y = mary.y //- mary.height
@@ -292,10 +307,10 @@ const movementHandler = async () => {
         if (mary.x < mary.parent.width)
         moveBy(5)
     }
-    if ((lastOutput == true || keys.ArrowUp) && timePassed(lastShootTime, 400)) {
+    /*if ((lastOutput == true || keys.ArrowUp) && timePassed(lastShootTime, 400)) {
         shoot()
         lastShootTime = Date.now()
-    }
+    }*/
 }
 
 app.ticker.add(movementHandler);

@@ -36,7 +36,10 @@ Lambda Calculus is an extremely minimalistic programming language, where everyth
     Here's how you can evaluate this function:
     <br><b>(\x.x) y -> (\y.y) -> y</b><br>
     The first step is to pass y as an input. This is denoted by writing y to the right of the function body. After that, we substitute the first lambda value with the first input throughout. Finally, we have the function (\y.y), which is identical to just y. (\x.x) is called the Identity Function, as it returns whatever it receives as input.<br>
-    <em>You will be given either the function True or False (You'll learn how these work later). You will receive True as an input to your code if there is an enemy above, and False otherwise. Your code, given this as input, should return True whenever the player should shoot.</em>
+     Another useful abstraction you will have access to is:
+    <br><b>if (condition) (outcome) (outcome)</b><br>
+    This function will evaluate to the first outcome if the condition is true, and the second if it is false. Later, you'll learn how to build the if function yourself with only the basic Lambda Calculus symbols.<br>
+    <em>You will be given either the function True or False (You'll learn how these work later). You will receive True as an input to your code if there is an enemy above, and False otherwise. Your code, given this as input, should apply the "shoot function" whenever the player should shoot.</em>
 </div>
 <div id="editor"></div>
 </body>
